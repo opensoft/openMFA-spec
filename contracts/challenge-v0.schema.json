@@ -61,7 +61,9 @@
       "anyOf": [
         {
           "type": "string",
-          "pattern": "^sha256:[0-9a-f]{64}$"
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
         },
         {
           "type": "null"
@@ -70,7 +72,9 @@
     },
     "nonce": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9_-]{43}$"
+      "pattern": "^[A-Za-z0-9_-]{43}$",
+      "minLength": 43,
+      "maxLength": 43
     },
     "method": {
       "const": "wallet-ed25519-possession.v0"

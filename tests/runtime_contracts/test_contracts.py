@@ -49,3 +49,16 @@ def test_receipt_forbids_method_upgrade_and_client_key():
     for altered in [dict(receipt(),verified_methods=["mfa"]),dict(receipt(),public_key="client"),
                     dict(receipt(),signature="A"*85+"B")]:
         rejects(validator,altered)
+
+@pytest.mark.parametrize("name,example,field",[
+    ("challenge-v0.schema.json",challenge,"nonce"),
+    ("challenge-v0.schema.json",challenge,"request_digest"),
+    ("verification-receipt-v0.schema.json",receipt,"signature"),
+    ("verification-receipt-v0.schema.json",receipt,"challenge_digest"),
+    ("verification-receipt-v0.schema.json",receipt,"request_digest"),
+])
+@pytest.mark.parametrize("suffix",["\n","\r\n"])
+def test_fixed_width_fields_reject_trailing_newlines(name,example,field,suffix):
+    value=example()
+    value[field]+=suffix
+    rejects(read(name),value)
