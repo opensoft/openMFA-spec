@@ -28,6 +28,8 @@ None. Existing released contracts are unchanged.
 
 Bootstrap portable OpenSpec/Speckit feature tooling in a separate assembly-root PR. This tooling changes neither leg pin nor any shape-pinned file, and excludes host-local selectors and unfilled constitution state.
 
+That draft tooling includes two bounded corrections found during review: honor the paired spec selector during core creation, and refuse resume when origin cannot be verified. Declare these deviations from the generated baseline, retain its provenance without a false content marker, and run isolated regression fixtures. No shared distribution or shape pin is changed.
+
 Canonical contracts and full governance live in this spec leg. Implementation and offline tests live in the paired code leg. The assembly root and any consumer advance only after reviewed leg PRs merge, through lockstep pins. Development metadata `0.0.0.dev0` is not an allocated release. No live identity, credential, enrollment, tenant policy or deployment action is part of this change.
 
 ## Implementation Handoff
