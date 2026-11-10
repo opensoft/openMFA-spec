@@ -6,11 +6,11 @@ Status: local source gates passed; upstream review and acceptance pending
 
 Parent [codeXfactory #577](https://github.com/codeXfactory/codexFactory/pull/577) merged at `03d0fd28719ad8756dc3b533aa91f2b0ef5397e7` after the corrected required check passed. The owner accepted that proposal's specific origin-ID correction through its recorded disposition. That history does not ratify this new contract.
 
-Code candidate: [PR](https://github.com/opensoft/openMFA-code/pull/2), source `c585489f31322b7688a5b8587242c75e46c80626`. The code commit contains the implementation tested below. Governance and new wire contracts remain draft in this spec leg. No assembly pin, product release or consumer execution pin was advanced.
+Code candidate: [PR](https://github.com/opensoft/openMFA-code/pull/2), source `1c908221b9df9515aaa1137bed31191888d9f8d8`. This adds independent known-answer tests to the previous runtime implementation; runtime behavior and wire contracts are unchanged. Governance and new wire contracts remain draft in this spec leg. No assembly pin, product release or consumer execution pin was advanced.
 
 ## Local verification
 
-- Code-leg full pytest: **38 passed**, 8.13 seconds. State tests explicitly use a synthetic factor backend while issuer receipt signatures are real. Test keys are generated in memory.
+- Code-leg full pytest: **48 passed**, 39.55 seconds. State tests explicitly use a synthetic factor backend while issuer receipt signatures are real. Existing tests generate keys in memory; known-answer vectors use deliberately public test seeds.
 - Spec-leg structural pytest after review corrections: **13 passed**, in a fresh isolated environment installed solely from the eleven local hash-locked wheels. Structural fixtures, including zero-byte-shaped signature strings, do not assert cryptographic validity.
 - Pinned OpenSpec CLI 1.12.0: **1 targets passed, 0 failed**, strict clean. Tarball SHA-512/SHA-1 verified before installation. npm dependency setup still resolves from the registry.
 - Scoped strict origin validation from the parent's pinned proposal helper at `93d13d6c8e14008c0b66adea65756d106fef6227`: no origin errors.
@@ -29,10 +29,27 @@ Review corrections: the structural gate now installs a complete SHA-256-locked w
 
 CI hardening: the structural-test workflow now permits binary dependencies only. This fixes Sonar rule `githubactions:S8541` found on wallet spec PR #8; the same scoped workflow change is applied here. A no-install resolution check confirmed wheel availability for the declared Python 3.12 dependency closure. No gate, rule or exception is weakened.
 
-Published draft spec: [openMFA-spec #2](https://github.com/opensoft/openMFA-spec/pull/2). Separate assembly tooling: [openMFA #2](https://github.com/opensoft/openMFA/pull/2), with original leg pins. Exact `@codex review` requests were posted on both legs. Codex code-review receipts from `chatgpt-codex-connector[bot]` completed on the exact code head recorded above with no findings reported. This code-review receipt is not contract ratification or live acceptance. Spec/tooling review and CI must be read from their own PR heads.
+Published draft spec: [openMFA-spec #2](https://github.com/opensoft/openMFA-spec/pull/2). Separate assembly tooling [openMFA #2](https://github.com/opensoft/openMFA/pull/2) merged normally at `c0873fde1c10274f395522179704351fb74e0c45`, preserving original leg pins. A fresh exact `@codex review` request produced a `chatgpt-codex-connector[bot]` receipt explicitly naming current code commit `1c908221b9` with no major issues. This is review evidence for that code head, not contract ratification or live acceptance.
 
-Code CI passed on the exact source head recorded above: [pytest run](https://github.com/opensoft/openMFA-code/actions/runs/42868159557). The source workflow uses read-only repository permissions. Spec-leg CI is still pending publication/readback of its own PR.
+Code CI passed on the exact current source head recorded above: [pytest run](https://github.com/opensoft/openMFA-code/actions/runs/42926807457). The source workflow uses read-only repository permissions. Current spec CI and review are read back on that PR after its evidence update.
 
 The source CI workflows and exact `@codex review` request are published on the code PR. A request is not a review receipt. Current PR results and later heads must be checked separately; local evidence above is not a CI claim.
 
-Owner review/ratification of the new wire profile, independent compatibility vectors, real factor/registry/custody acceptance, workload composition evidence, provider and human adapters, reviewed leg merges and assembly pins remain pending. Possession evidence confers no MFA, human approval or domain permission. No live tenant, enrollment, identity-provider or deployment operation was performed. No OpenSpec archive or product tag is authorized by this evidence.
+## Independent compatibility prerequisite
+
+T007 is complete at the code head above. Two fixed vectors independently
+generated with Node 24.21.0/OpenSSL 3.5.8 cover null/bound request digests,
+Unicode and the maximum safe binding revision. Python cryptography used
+OpenSSL 4.0.2 for verification. Ten cases passed in 3.34 seconds; the Node
+generator reproduced the complete corpus exactly. Vector SHA-256:
+`9df0b5501d36d735f0563f32b79b0999ec2267be57af191933b4b9c99421ee55`.
+The code-leg `tests/challenge_service/VECTORS.md` documents provenance,
+reproduction and limits. All fixed seeds are deliberately public test material.
+
+Actual service issuance matches the independent challenge record/digest and
+receipt signature. Wrong-domain/changed-byte messages, wrong caller, expiry
+and issuer revocation refuse. The service test uses an explicit fixture
+factor and test-only nonce/ID replacements. This closes candidate known-answer
+preparation, not real factor or accepted assembly interoperability qualification.
+
+Owner review/ratification of the new wire profile, accepted assembly compatibility, real factor/registry/custody acceptance, workload composition evidence, provider and human adapters, reviewed leg merges and assembly pins remain pending. Possession evidence confers no MFA, human approval or domain permission. No live tenant, enrollment, identity-provider or deployment operation was performed. No OpenSpec archive or product tag is authorized by this evidence.
