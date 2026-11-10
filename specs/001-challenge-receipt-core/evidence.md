@@ -25,6 +25,8 @@ The pinned CLI's generic `instructions apply` diagnostic reports no embedded Ope
 
 ## CI, review and remaining acceptance
 
+Published draft spec: [openMFA-spec #2](https://github.com/opensoft/openMFA-spec/pull/2). Separate assembly tooling: [openMFA #2](https://github.com/opensoft/openMFA/pull/2), with original leg pins. Exact `@codex review` requests were posted on both legs. Codex code-review receipts from `chatgpt-codex-connector[bot]` completed on the exact code head recorded above with no findings reported. This code-review receipt is not contract ratification or live acceptance. Spec/tooling review and CI must be read from their own PR heads.
+
 Code CI passed on the exact source head recorded above: [pytest run](https://github.com/opensoft/openMFA-code/actions/runs/42868159557). The source workflow uses read-only repository permissions. Spec-leg CI is still pending publication/readback of its own PR.
 
 The source CI workflows and exact `@codex review` request are published on the code PR. A request is not a review receipt. Current PR results and later heads must be checked separately; local evidence above is not a CI claim.
