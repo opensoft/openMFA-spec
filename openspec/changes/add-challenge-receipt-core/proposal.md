@@ -1,0 +1,35 @@
+---
+Status: draft
+code_surface: A file-backed, caller-bound challenge/receipt core with real issuer signatures, default-deny factor verification, cancellation, expiry, binding revocation and idempotent one-use consumption.
+target_release: unallocated; no product version or release tag is reserved here.
+---
+
+# add-challenge-receipt-core
+
+## Why
+
+The existing design capture does not provide a cryptographic runtime. A file-backed, caller-bound challenge/receipt core with real issuer signatures, default-deny factor verification, cancellation, expiry, binding revocation and idempotent one-use consumption.
+
+Brett Heap commissioned this upstream prerequisite after ratifying [codeXfactory PR #577](https://github.com/codeXfactory/codexFactory/pull/577), merged at `03d0fd28719ad8756dc3b533aa91f2b0ef5397e7`. That commission authorizes preparing a reviewable candidate. This new packet and wire profile remain draft; the parent approval does not manufacture local contract ratification.
+
+## What Changes
+
+Add the candidate contract and a bounded Python runtime with substantive adversarial tests. The initial method is possession only. Missing factor backends and requests for MFA or human assurance refuse. A future real adapter needs separate acceptance.
+
+## Capabilities
+
+### New Capabilities
+- `mfa-challenge-receipt`: A file-backed, caller-bound challenge/receipt core with real issuer signatures, default-deny factor verification, cancellation, expiry, binding revocation and idempotent one-use consumption.
+
+### Modified Capabilities
+None. Existing released contracts are unchanged.
+
+## Impact
+
+Bootstrap portable OpenSpec/Speckit feature tooling in a separate assembly-root PR. This tooling changes neither leg pin nor any shape-pinned file, and excludes host-local selectors and unfilled constitution state.
+
+Canonical contracts and full governance live in this spec leg. Implementation and offline tests live in the paired code leg. The assembly root and any consumer advance only after reviewed leg PRs merge, through lockstep pins. Development metadata `0.0.0.dev0` is not an allocated release. No live identity, credential, enrollment, tenant policy or deployment action is part of this change.
+
+## Implementation Handoff
+
+[Feature 001-challenge-receipt-core](../../../specs/001-challenge-receipt-core/plan.md) owns the sole executable task list. Do not archive before the leg reviews and assembly pin PR land.
