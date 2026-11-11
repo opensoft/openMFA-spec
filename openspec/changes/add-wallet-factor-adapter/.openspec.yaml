@@ -1,0 +1,8 @@
+schema: spec-driven
+created: 2026-11-10
+origin:
+  kind: ad_hoc
+  id: openMFA:adhoc:2026-11-10-add-wallet-factor-adapter
+  reason: Implement and test real wallet factor verification and isolated assembly compatibility for the first codeXfactory pilot.
+  approved_by: Brett Heap, direct implementation instruction and explicit choice to build portable reference services and qualify them in isolation; no production or live custody authorization.
+  approved_on: 2026-11-10
