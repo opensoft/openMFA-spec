@@ -1,6 +1,18 @@
 # Candidate evidence — 2026-11-10
 
-Status: local source gates passed; upstream review and acceptance pending
+Status: possession-only wire contract ratified; runtime acceptance pending
+
+## Current owner standing
+
+Brett Heap answered "Ratify both possession-only profiles" on 2026-11-10,
+accepting spec baseline `61ae1cbe21fc5b9465b901ff57a92099e81b90b3`.
+The governing proposal's [owner record](../../openspec/changes/add-challenge-receipt-core/review/ratification-2026-11-10.md)
+preserves the question/response, exact schema digests and exclusions. Historical
+draft/pending-ratification statements below describe earlier preparation.
+Current code candidate remains `1c908221b9df9515aaa1137bed31191888d9f8d8`; real custody,
+factor adapters, human approval, live qualification and assembly acceptance
+remain separate gates. No technical contract or runtime byte changed to
+record this owner decision.
 
 ## Commission and source
 

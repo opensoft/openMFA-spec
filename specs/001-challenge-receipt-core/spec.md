@@ -2,8 +2,8 @@
 
 **Feature Branch**: `001-challenge-receipt-core`
 **Created**: 2026-11-10
-**Status**: Draft candidate
-**Input**: Commissioned upstream prerequisite following codeXfactory PR #577; local wire contract remains under review.
+**Status**: Possession-only wire contract ratified; candidate realization pending
+**Input**: Commissioned upstream prerequisite following codeXfactory PR #577; separately ratified by Brett Heap on 2026-11-10 at `61ae1cbe21fc5b9465b901ff57a92099e81b90b3`. See the governing proposal's owner record; operational acceptance remains separate.
 
 ## User Scenarios & Testing
 

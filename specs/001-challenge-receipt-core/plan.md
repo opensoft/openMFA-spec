@@ -1,6 +1,7 @@
 # Implementation Plan: 001-challenge-receipt-core
 
 **Status**: Draft candidate implementation
+**Contract standing**: Possession-only wire profile ratified by Brett Heap on 2026-11-10; runtime realization and operational gates remain pending. See the governing proposal's `review/ratification-2026-11-10.md`.
 **Date**: 2026-11-10
 **Spec**: [spec.md](spec.md)
 **Governance**: [add-challenge-receipt-core](../../openspec/changes/add-challenge-receipt-core/proposal.md)
