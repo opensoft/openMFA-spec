@@ -6,12 +6,12 @@
     "injected-failure": {
       "expected_failure_observed": true,
       "resource_absence_verified": true,
-      "case": "wmq-bba2b30bf8144fb9"
+      "case": "wmq-0a7e21689a564ade"
     },
     "cancelled": {
       "expected_failure_observed": true,
       "resource_absence_verified": true,
-      "case": "wmq-385b170f4cfc4bfc"
+      "case": "wmq-ded91d4b262344fe"
     }
   },
   "operational_acceptance": false

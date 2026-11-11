@@ -1,6 +1,6 @@
 # Isolated wallet-factor qualification — 2026-11-10
 
-Status: implementation and isolated source qualification complete; final review pending
+Status: implementation and isolated source qualification complete; local review complete; protected landing requires current-head CI
 
 ## Scope and immutable sources
 
@@ -10,8 +10,8 @@ The previously ratified possession-only wire profiles stay unchanged.
 
 | Component | Exact tested code | PR |
 | --- | --- | --- |
-| openWallet registry/custody | `77f53b83567c5a1ffa10dbeb5e4b5de8f339fd92` | [openWallet-code #5](https://github.com/opensoft/openWallet-code/pull/5) |
-| openMFA factor/gates/finalization | `9a1cc19276832a264ef34b0bb70d0d8e7860780f` | [openMFA-code #3](https://github.com/opensoft/openMFA-code/pull/3) |
+| openWallet registry/custody | `32c9254feffe6a856b9cc823af561fdfc45dc673` | [openWallet-code #5](https://github.com/opensoft/openWallet-code/pull/5) |
+| openMFA factor/gates/finalization | `ddd59d573ef35390c9bbe70439db07ca62b58283` | [openMFA-code #3](https://github.com/opensoft/openMFA-code/pull/3) |
 
 The complete temporary source inputs are bound in
 [evidence/source-inputs.json](evidence/source-inputs.json). They were constructed
@@ -25,18 +25,18 @@ all existing shape-copy digests remain unchanged.
 
 ## Local source and CI gates
 
-- openWallet: **138 passed, one existing historical-comparison skip**, 115.15 seconds.
-- openMFA: **77 passed**, 7.15 seconds, including three cleanup exception regressions.
-- Focused registry/custody: **40 passed**; focused adapter/assembly/finalization: **29 passed**.
+- openWallet: **141 passed, one existing historical-comparison skip**, 139.16 seconds.
+- openMFA: **83 passed**, 7.49 seconds, including three cleanup exception regressions.
+- Focused registry/custody: **43 passed**; focused adapter/assembly/finalization: **35 passed**.
 - Wallet syntax and plain/strict corpus validators passed: 21 positives, 42 negative confirmations, 11/11 requirements, zero errors/warnings.
 - Pinned strict OpenSpec validation passed both owner packets; no vendored CLI/shape helper was edited.
-- Current wallet [pytest CI](https://github.com/opensoft/openWallet-code/actions/runs/42938949394) and [wallet validation](https://github.com/opensoft/openWallet-code/actions/runs/42938949270) passed at `77f53b8`.
-- Current MFA [pytest CI](https://github.com/opensoft/openMFA-code/actions/runs/42939892578) passed at `9a1cc19`.
+- Current wallet [pytest CI](https://github.com/opensoft/openWallet-code/actions/runs/42943230683) and [wallet validation](https://github.com/opensoft/openWallet-code/actions/runs/42943230816) passed at `32c9254`.
+- Current MFA [pytest CI](https://github.com/opensoft/openMFA-code/actions/runs/42943259692) passed at `ddd59d5`.
 
 ## Actual isolated qualification
 
 [Success report](evidence/isolated-success.json), case
-`wmq-069fb16abf8c453e`, passed every declared gate:
+`wmq-ebb57bf3c09a468f`, passed every declared gate:
 
 - Distinct custody, verifier and agent containers; read-only root filesystems, non-root users, dropped capabilities, bounded CPU/memory/PIDs and one internal network.
 - Separate role credential/state volumes; no host credential mount, Docker socket, privileged mode or published port.
@@ -55,9 +55,9 @@ driver itself and installed modules were bound to the selected source.
 
 [Cleanup summary](evidence/isolated-cleanup.json) independently exercised
 [injected failure](evidence/isolated-cleanup-injected-failure.json), case
-`wmq-bba2b30bf8144fb9`, and
+`wmq-0a7e21689a564ade`, and
 [SIGTERM cancellation](evidence/isolated-cleanup-cancelled.json), case
-`wmq-385b170f4cfc4bfc`. Each observed its expected failure and verified absence
+`wmq-ded91d4b262344fe`. Each observed its expected failure and verified absence
 of all run-labeled containers, networks, volumes and images. Private temporary
 credential state was cleaned. Missing readback or cleanup exceptions force failure.
 
@@ -82,10 +82,27 @@ continues all resource categories, cleans private state and returns failure
 evidence. Three targeted tests pass. The finding thread is resolved with the
 fix recorded; full actual success/failure/SIGTERM qualification was rerun.
 
-Final MFA bot review at `9a1cc19` was requested explicitly but hit the usage
-limit. Earlier receipts do not cover that head. Paired spec review results are
-read back on their own PRs. T005 remains pending final review acceptance;
-no quota failure is represented as a clean receipt.
+Final bot review requests hit the usage limit. Brett Heap explicitly
+authorized local review of all four PRs. [local-review.md](local-review.md)
+records the full specialist passes and independent correction re-reviews.
+No quota failure or older receipt is claimed as a clean final-head bot review.
+Current-head CI and actual landing will be recorded in commit-bound PR reviews.
+
+## Final local review corrections
+
+The authorized local review corrected two qualification false greens.
+Canonical signing probes and real second-subject bindings now detect
+accidental permission grants (three mutation regressions). The cleanup
+checker invalidates prior evidence, requires fresh reports and exit 1, and
+binds cancellation to its observed current case (six regressions).
+Independent contract/reliability re-reviews confirmed both fixes.
+[local-review.md](local-review.md) also records the independently confirmed
+SonarCloud S8707 false-positive disposition and explicit local acceptance.
+
+Actual qualification was repeated at the final code heads above. The fresh
+reports and case IDs in this document supersede the earlier qualification
+snapshot. The paired MFA raw artifacts bind source, modules and wheels;
+all run-owned resources were absent at final readback.
 
 ## Acceptance limits
 

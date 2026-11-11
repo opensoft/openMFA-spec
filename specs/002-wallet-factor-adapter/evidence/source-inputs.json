@@ -1,10 +1,10 @@
 {
   "wallet": {
-    "commit": "0c9e79bd7d9deddfd002ce220bb3006f5b6e3700",
-    "tree": "03ac5c2b4046df913dc98969b57746fceda3d471"
+    "commit": "526a07a8a3b16d6be838a8e27f11bd0e79b39b33",
+    "tree": "d142ee6cea53662e09a0bf71a9c1559572b426d4"
   },
   "mfa": {
-    "commit": "94d79058d0a75ead1a855b458e6177820830cacb",
-    "tree": "ec7d7ac82fbc12946c064356b193105929ac5f44"
+    "commit": "f3ed6929dee63b2645bbfae53083ed488215f163",
+    "tree": "50aedb796844e2c7c80c934c0b7844562bef6f67"
   }
 }
