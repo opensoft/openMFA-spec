@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "stage": "negative-source-conformance",
+  "passed": true,
+  "gates": {
+    "wallet:wrong-expected-commit": true,
+    "wallet:wrong-expected-tree": true,
+    "wallet:dirty-root": true,
+    "wallet:wrong-gitlink-pin": true,
+    "wallet:wrong-leg-digest": true,
+    "wallet:empty-shape-pin": true,
+    "wallet:shape-copy-drift": true,
+    "wallet:wrong-workflow-reference": true,
+    "mfa:wrong-expected-commit": true,
+    "mfa:wrong-expected-tree": true,
+    "mfa:dirty-root": true,
+    "mfa:wrong-gitlink-pin": true,
+    "mfa:wrong-leg-digest": true,
+    "mfa:empty-shape-pin": true,
+    "mfa:shape-copy-drift": true,
+    "mfa:wrong-workflow-reference": true,
+    "wrong-installed-runtime-source": true
+  },
+  "operational_acceptance": false
+}

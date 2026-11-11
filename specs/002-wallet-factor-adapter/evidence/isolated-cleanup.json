@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "stage": "isolated-cleanup-conformance",
+  "passed": true,
+  "gates": {
+    "injected-failure": {
+      "expected_failure_observed": true,
+      "resource_absence_verified": true,
+      "case": "wmq-bba2b30bf8144fb9"
+    },
+    "cancelled": {
+      "expected_failure_observed": true,
+      "resource_absence_verified": true,
+      "case": "wmq-385b170f4cfc4bfc"
+    }
+  },
+  "operational_acceptance": false
+}

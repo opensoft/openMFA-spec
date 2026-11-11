@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "stage": "isolated-source-conformance",
+  "case": "wmq-385b170f4cfc4bfc",
+  "operational_acceptance": false,
+  "sources": {
+    "wallet": {
+      "repository": "opensoft/openWallet",
+      "commit": "0c9e79bd7d9deddfd002ce220bb3006f5b6e3700",
+      "tree": "03ac5c2b4046df913dc98969b57746fceda3d471",
+      "legs": {
+        "spec": {
+          "commit": "f71d8e09f963a12d9c46a461b96fd2d0ac659e66",
+          "tree_sha256": "a4c35859155207810f820ecac4a59cb48d2361e9dfdd77d7ccbd1200991913fc"
+        },
+        "code": {
+          "commit": "77f53b83567c5a1ffa10dbeb5e4b5de8f339fd92",
+          "tree_sha256": "3a77efef7ddcf43b6c12e95bcfee0ce0237b469199f0d9bcd318d210aa3bd9dd"
+        }
+      },
+      "package": {
+        "package": "openwallet_runtime",
+        "files": {
+          "proof.py": "6e5372ee2216acda62f60a256a51f4b89cc9ad8a3b7a13d2df294c66527ae115",
+          "__init__.py": "7186763f2d58667fee065de3f3eb213c8fb103436e884476f1ae6abe63462551",
+          "custody.py": "ecc9176ec2a0dde191e62a85999d48a52c02b8403429e0f883cde96978b2b8a4",
+          "reference_service.py": "65a743b7c0c8e5084f230d43838ae03988279f4f240874555e100e6c57862e19",
+          "registry.py": "41bef6d8d18952233e11a343c7fa01f1f1ce88c9fab1a9218e859c6e92dd3087"
+        }
+      }
+    },
+    "mfa": {
+      "repository": "opensoft/openMFA",
+      "commit": "94d79058d0a75ead1a855b458e6177820830cacb",
+      "tree": "ec7d7ac82fbc12946c064356b193105929ac5f44",
+      "legs": {
+        "spec": {
+          "commit": "ac3b5335a1b14da1a2d100e9604c49fa28857a19",
+          "tree_sha256": "f5a81792a8f361a3e2f3230545fb73009297c4d630a9bba27864763c11fa4ba2"
+        },
+        "code": {
+          "commit": "9a1cc19276832a264ef34b0bb70d0d8e7860780f",
+          "tree_sha256": "a1484744763a03f85aba7c58fb87e7f9944f8d3a01a87841328167d5c3d3641e"
+        }
+      },
+      "package": {
+        "package": "openmfa_runtime",
+        "files": {
+          "wallet_factor.py": "05bd570f4907923479a75277e2746543a58ca4a1e6742bb30cbf3d5d2901d5bf",
+          "__init__.py": "845f5b4ecd9fc0ffe6410952689c85000bfeb6a386c5cf9189834f198960401d",
+          "assembly_gate.py": "7179b3f4bee0d65edae691c041578e5588e767bfbe9e9b809a7c510e1c941f05",
+          "core.py": "521f38e199ab1eb78a627fb7de0cec09481477a29f06c22636bb056178d381b1"
+        }
+      }
+    }
+  },
+  "base_image": "python@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258",
+  "custody_model": "isolated_invocable",
+  "gates": {
+    "resource_creation": true
+  },
+  "passed": false,
+  "wheels": {
+    "cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl": "c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf",
+    "cryptography-50.0.1-cp311-abi3-manylinux_2_34_x86_64.whl": "51afcfceb15597cf2635068e4ac9a56b2abde622edde17f37d85fd7b5306497a",
+    "openmfa_runtime-0.0.0.dev0-py3-none-any.whl": "4df25f30a003cb041b1e04cb9f1886005cbb70fbdb7720ee13db5259fd8e90e9",
+    "openwallet_runtime-0.0.0.dev0-py3-none-any.whl": "46f86ab75a736e616f077b3182cdf83a12fe4af2ec10289ae5a7df49d8d30d4c",
+    "pycparser-3.0-py3-none-any.whl": "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992",
+    "pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl": "ba1cc08a7ccde2d2ec775841541641e4548226580ab850948cbfda66a1befcdc",
+    "rfc8785-0.1.4-py3-none-any.whl": "520d690b448ecf0703691c76e1a34a24ddcd4fc5bc41d589cb7c58ec651bcd48"
+  },
+  "error": "InterruptedError",
+  "cleanup": {
+    "absence_verified": true,
+    "failures": []
+  }
+}
