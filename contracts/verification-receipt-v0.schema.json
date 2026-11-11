@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:openmfa:verification-receipt:v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile",
+    "alg",
+    "id",
+    "issuer",
+    "caller_ref",
+    "tenant",
+    "audience",
+    "subject_ref",
+    "request_digest",
+    "key_ref",
+    "challenge_digest",
+    "verified_methods",
+    "verified_at",
+    "expires_at",
+    "binding_ref",
+    "binding_revision",
+    "signature"
+  ],
+  "properties": {
+    "profile": {
+      "const": "openmfa.verification-receipt.v0"
+    },
+    "alg": {
+      "const": "Ed25519"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "issuer": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "caller_ref": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "tenant": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "subject_ref": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "request_digest": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "key_ref": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "challenge_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "minLength": 71,
+      "maxLength": 71
+    },
+    "verified_methods": {
+      "type": "array",
+      "items": {
+        "const": "wallet-ed25519-possession.v0"
+      },
+      "minItems": 1,
+      "maxItems": 1
+    },
+    "verified_at": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "expires_at": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "binding_ref": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "binding_revision": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "signature": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{85}[AQgw]$",
+      "minLength": 86,
+      "maxLength": 86
+    }
+  }
+}

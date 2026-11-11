@@ -1,0 +1,17 @@
+# openMFA's tooling configuration; this is not a neutral-product descent pin.
+schema_version: 1
+kind: pinned_contract_manifest
+package: "@fission-ai/openspec"
+source_repository: Fission-AI/OpenSpec
+source_url: https://github.com/Fission-AI/OpenSpec
+registry: https://registry.npmjs.org
+version: "1.12.0"
+revision_kind: package_integrity
+integrity_algorithm: sha512
+integrity: "sha512-oFE2Lj7WVSc87nSibk6qe9HjHIOlxhcPAXbPey44DlLvJzBl5+9BZVrNiozOwv++CQhW+MG0kuP1XLZ/uQrrWw=="
+shasum: "c844543999f673cdd72445879b86a4abea4c07ef"
+tarball: https://registry.npmjs.org/@fission-ai/openspec/-/openspec-1.12.0.tgz
+binary: openspec
+verify_pin: scripts/validate-openspec-cli-pin.py
+consumer_entrypoint: scripts/validate-openspec-cli-pin.py
+# No dispositions key: the verifier treats absence as no exceptions.

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:openmfa:challenge:v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile",
+    "id",
+    "issuer",
+    "caller_ref",
+    "tenant",
+    "audience",
+    "subject_ref",
+    "request_digest",
+    "nonce",
+    "method",
+    "issued_at",
+    "expires_at"
+  ],
+  "properties": {
+    "profile": {
+      "const": "openmfa.challenge.v0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "issuer": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "caller_ref": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "tenant": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "subject_ref": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Trimmed nonempty reference, without controls, DEL or surrogate code points; runtime enforces this Unicode rule."
+    },
+    "request_digest": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "nonce": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{43}$",
+      "minLength": 43,
+      "maxLength": 43
+    },
+    "method": {
+      "const": "wallet-ed25519-possession.v0"
+    },
+    "issued_at": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "expires_at": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    }
+  }
+}
